@@ -1,4 +1,4 @@
-package server
+package studentserver
 
 import (
 	"context"
@@ -30,12 +30,12 @@ func (s *StudentServer) GetStudent(ctx context.Context, req *studentpb.GetStuden
 }
 
 func (s *StudentServer) SetStudent(ctx context.Context, req *studentpb.Student) (*studentpb.SetStudentResponse, error) {
-	student := &models.Student{
+	student := models.Student{
 		Id:   req.GetId(),
 		Name: req.GetName(),
 		Age:  req.GetAge(),
 	}
-	err := s.repo.SetStudent(ctx, student)
+	err := s.repo.SetStudent(ctx, &student)
 	if err != nil {
 		return nil, err
 	}
