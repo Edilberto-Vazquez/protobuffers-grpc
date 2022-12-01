@@ -5,9 +5,8 @@ import (
 	"database/sql"
 	"log"
 
-	_ "github.com/lib/pq"
-
 	"github.com/Edilberto-Vazquez/protobuffers-grpc/models"
+	_ "github.com/lib/pq"
 )
 
 type PostgresRepository struct {
